@@ -34,7 +34,7 @@ $ npm i uki-egg-jaeger --save
 
 ```js
 // {app_root}/config/plugin.js
-exports.ukiEggJaeger = {
+exports.jaeger = {
   enable: true,
   package: 'uki-egg-jaeger',
 };
@@ -44,7 +44,7 @@ exports.ukiEggJaeger = {
 
 ```js
 // {app_root}/config/config.default.js
-exports.ukiEggJaeger = {
+exports.jaeger = {
 };
 ```
 

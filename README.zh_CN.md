@@ -47,7 +47,7 @@ uki-egg-jaeger 版本 | egg 1.x
 
 ```js
 // config/plugin.js
-exports.ukiEggJaeger = {
+exports.jaeger = {
   enable: true,
   package: 'uki-egg-jaeger',
 };
