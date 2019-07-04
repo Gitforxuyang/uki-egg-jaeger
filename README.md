@@ -45,6 +45,14 @@ exports.jaeger = {
 ```js
 // {app_root}/config/config.default.js
 exports.jaeger = {
+  serviceName: 'uki-egg-jaeger',
+    sampler: {
+      type: 'const',
+      param: 1,
+    },
+    reporter: {
+      collectorEndpoint: 'http://**/api/traces',
+    },
   redis:true,
   mongoose:true,
   http:true,
