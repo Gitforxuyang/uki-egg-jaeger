@@ -45,6 +45,10 @@ exports.jaeger = {
 ```js
 // {app_root}/config/config.default.js
 exports.jaeger = {
+  redis:true,
+  mongoose:true,
+  http:true,
+  sequalize:true,
 };
 ```
 
