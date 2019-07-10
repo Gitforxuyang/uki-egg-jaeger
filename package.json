@@ -1,6 +1,6 @@
 {
   "name": "uki-egg-jaeger",
-  "version": "2.1.0",
+  "version": "2.1.2",
   "description": "自封装的包含redis http mongo sequalize 异步链路的egg包",
   "eggPlugin": {
     "name": "ukiEggJaeger"
