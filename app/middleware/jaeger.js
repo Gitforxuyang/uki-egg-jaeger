@@ -24,10 +24,9 @@ module.exports = (options, app) => async function jaegerMiddleware(ctx, next) {
   });
 
   if (ctx.header['x-request-id']) {
-    span.context().traceId = Buffer.from(ctx.header['x-request-id'], 'hex');
-  } else {
-    ctx.header['x-request-id'] = span.context().traceId.toString('hex');
+    span.context().traceId = Buffer.from(ctx.header['x-request-id'], 'hex').slice(0, 8);
   }
+  ctx.header['x-request-id'] = span.context().traceId.toString('hex');
   try {
     await next();
     finishSpan(span, ctx);
