@@ -1,7 +1,7 @@
 {
   "name": "uki-egg-jaeger",
-  "version": "5.0.1",
-  "description": "fix:修复链路追踪无法接收上游Id bug",
+  "version": "5.0.2",
+  "description": "fix:设置链路",
   "eggPlugin": {
     "name": "ukiEggJaeger"
   },

@@ -23,9 +23,10 @@ module.exports = (options, app) => async function jaegerMiddleware(ctx, next) {
     'http.method': ctx.method,
     'http.url': ctx.url,
   }, parentSpanContext);
-  // if (ctx.header['x-request-id']) {
-  //   span.context().traceId = Buffer.from(ctx.header['x-request-id'], 'hex').slice(0, 8);
-  // }
+  //有requestId且没有注入链路
+  if (ctx.header['x-request-id'] && !ctx.header['uber-trace-id']) {
+    span.context().traceId = Buffer.from(ctx.header['x-request-id'], 'hex').slice(0, 8);
+  }
   ctx.header['x-request-id'] = span.context().traceId.toString('hex');
   try {
     await next();
