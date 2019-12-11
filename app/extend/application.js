@@ -35,4 +35,10 @@ module.exports = {
     this.als.set('span', span);
     return span;
   },
+  mdStartSpan(name, tags = {}, childOf) {
+    tags['app.version'] = this.loader.pkg.version;
+    const span = this.jaeger.startSpan(name, childOf ? { childOf, tags } : { tags });
+    this.als.set('span', span);
+    return span;
+  },
 };

@@ -18,14 +18,14 @@ const finishSpan = (span, ctx, err) => {
 module.exports = (options, app) => async function jaegerMiddleware(ctx, next) {
   app.als.scope();
 
-  const span = app.startSpan(ctx.path, {
+  const parentSpanContext = app.jaeger.extract('http_headers', ctx.header)
+  const span = app.mdStartSpan(ctx.path, {
     'http.method': ctx.method,
     'http.url': ctx.url,
-  });
-
-  if (ctx.header['x-request-id']) {
-    span.context().traceId = Buffer.from(ctx.header['x-request-id'], 'hex').slice(0, 8);
-  }
+  }, parentSpanContext);
+  // if (ctx.header['x-request-id']) {
+  //   span.context().traceId = Buffer.from(ctx.header['x-request-id'], 'hex').slice(0, 8);
+  // }
   ctx.header['x-request-id'] = span.context().traceId.toString('hex');
   try {
     await next();

@@ -1,7 +1,7 @@
 {
   "name": "uki-egg-jaeger",
-  "version": "4.0.2",
-  "description": "自封装的包含redis http mongo sequalize 异步链路的egg包",
+  "version": "5.0.1",
+  "description": "fix:修复链路追踪无法接收上游Id bug",
   "eggPlugin": {
     "name": "ukiEggJaeger"
   },
