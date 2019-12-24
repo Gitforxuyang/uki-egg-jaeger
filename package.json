@@ -1,5 +1,5 @@
 {
-  "name": "uki-egg-jaeger",
+  "name": "@uki/uki-egg-jaeger",
   "version": "5.0.2",
   "description": "fix:设置链路",
   "eggPlugin": {
